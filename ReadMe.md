@@ -4,9 +4,12 @@
 ### Description
 =
 ### BDD Process
-1. example
-      * **Input**:
-      * **Output**:
+1. User enters what they want to add.
+      * **Input**: Eat an Apple
+      * **Output**: One new item added to list.
+2. User can view items in list.
+      * **Input**: View list
+      * **Output**: 1. Eat an Apple
 ### Setup
 *
 ### Contact
