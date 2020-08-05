@@ -2,7 +2,8 @@ namespace ToDoList.Models
 {
     public class Item
     {
-        public string Description { get; }
+        // We add set; to the line below.
+        public string Description { get; set; }
 
         public Item(string description)
         {
