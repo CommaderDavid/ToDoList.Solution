@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ToDoList.Models;
 
 namespace ToDoList
@@ -10,9 +11,31 @@ namespace ToDoList
             Console.WriteLine("Welcome to your To Do List!");
 
             Console.WriteLine("Would you like to add or view your List? (Add/View)");
-            string addToDoList = Console.ReadLine();
-            string viewToDoList = Console.ReadLine();
-            
+            string editToDoList = Console.ReadLine().ToLower();
+
+            if (editToDoList == "add")
+            {
+                Console.WriteLine("What do you wish to add?");
+                string description = Console.ReadLine();
+                Item item = new Item(description);
+                Main();
+            }
+            else if (editToDoList == "view")
+            {
+                Console.WriteLine("Your to do list:");
+                List<Item> items = Item.GetAll();
+                foreach (Item toDo in items)
+                {
+                    Console.WriteLine(toDo.Description);
+                }
+                Console.WriteLine("");
+                Main();
+            }
+            else
+            {
+                Console.WriteLine("You don't have anything on your to do list. Try again");
+                Main();
+            }
         }
     }
 }
