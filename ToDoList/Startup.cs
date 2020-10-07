@@ -34,6 +34,8 @@ namespace ToDoList
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            app.UseStaticFiles(); //Used for showing images.
+
             app.Run (async (context) => 
             {
                 await context.Response.WriteAsync ("Something went wrong!");
