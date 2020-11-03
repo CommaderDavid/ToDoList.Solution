@@ -17,7 +17,7 @@ This program allows the user to add and view a custom to do list. This project u
 * Navigate to `$cd Desktop`
 * Create a folder to house the copy: `$mkdir "Copy"`
 * Paste the link, (this is using github): `$git clone "Link"`
-* Navigate to the TriangleTrackerTests folder
+* Navigate to the ToDoListTests folder
 * Run `dotnet restore` in the terminal
 * Navigate back to the main folder
 * Run `dotnet build` then `dotnet run', and enjoy.
