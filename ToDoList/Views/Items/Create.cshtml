@@ -10,7 +10,10 @@
 {
   @Html.LabelFor(model => model.Description)
   @Html.TextBoxFor(model => model.Description)
-
+  <br>
+  @Html.LabelFor(model => model.DueDate)
+  @Html.TextBoxFor(model => model.DueDate, new {@type="date", @class = "form-control datepicker"})
+  <br>
   @Html.Label("Select category")
   @Html.DropDownList("CategoryId")
 

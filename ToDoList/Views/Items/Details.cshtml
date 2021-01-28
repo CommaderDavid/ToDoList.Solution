@@ -18,7 +18,8 @@
   <input type="submit" value="Save" />
 }
 
-<h4>Task Complete: (@Model.ItemComplete.ToString())</h4>
+<h4>Task Complete: @Model.ItemComplete.ToString()</h4>
+<h5>Due Date: [@Model.DueDate.ToString()]</h5>
 @if (@Model.Categories.Count == 0)
 {
   <p>This item does not belong to any categories</p>
