@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace ToDoList.Models
 {
@@ -6,7 +7,7 @@ namespace ToDoList.Models
     {
         public int ItemId { get; set; }
         public string Description { get; set; }
-        public int DueDate { get; set; }
+        public DateTime DueDate { get; set; }
         public bool ItemComplete { get; set; }
         public virtual ICollection<CategoryItem> Categories { get; }
 
