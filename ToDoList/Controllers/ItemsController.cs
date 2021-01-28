@@ -46,7 +46,12 @@ namespace ToDoList.Controllers
         public ActionResult Edit(int id)
         {
             Item thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
-            ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+            List<Category> allCategories = _db.Categories.ToList();
+            //Creates list from categories database
+            List<Category> thisCategories = thisItem.Categories.Select(x => x.Category).ToList();
+            List<Category> newList = allCategories.Where(x => !(thisCategories.Any(a => a.Name == x.Name))).ToList();
+            //SHould make it where x looks for duplacits in the names of CategoryItem and Category and keep them from being shown in the dropdown list
+            ViewBag.CategoryId = new SelectList(newList, "CategoryId", "Name");
             return View(thisItem);
         }
 
@@ -87,6 +92,14 @@ namespace ToDoList.Controllers
                 .ThenInclude(join => join.Category)
               .FirstOrDefault(item => item.ItemId == id);
             return View(thisItem);
+        }
+
+        [HttpPost]
+        public ActionResult Details(Item item)
+        {
+            _db.Entry(item).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Details");
         }
 
         public ActionResult Delete(int id)

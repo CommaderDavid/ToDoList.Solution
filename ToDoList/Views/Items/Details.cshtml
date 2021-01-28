@@ -8,6 +8,17 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ItemId)
+  @Html.HiddenFor(model => model.Description)
+  @Html.Label("Is the Item complete?")
+  @Html.CheckBoxFor(model => model.ItemComplete)
+  <br>
+  <input type="submit" value="Save" />
+}
+
+<h4>Task Complete: (@Model.ItemComplete.ToString())</h4>
 @if (@Model.Categories.Count == 0)
 {
   <p>This item does not belong to any categories</p>
